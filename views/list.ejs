@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo List</title>
+	<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="/app.css">
+</head>
+<body>
+	<div id="container">
+		<h1>TO-DO LIST<i class="fas fa-plus"></i></h1>
+		<form action="/add" method="POST">
+				<input type="text" name="todo" placeholder="Add New Todo">
+		</form>
+		<ul>
+			<%for(var i=0;i<todos.length;i++){%>
+				<li><span>
+						<form action="/<%=todos[i]._id%>?_method=DELETE" method="POST" id="myForm">
+							<i class="fas fa-trash-alt"></i>
+					</form>
+				</span>
+					
+				<%=todos[i].text%>
+				</li>
+			<%}%>
+
+		</ul>
+	</div>
+	<script type="text/javascript" src="/js/list.js"></script>
+
+</body>
+</html>
